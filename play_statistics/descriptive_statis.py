@@ -1,4 +1,5 @@
 from collections import Counter
+from math import sqrt
 
 
 # 频率
@@ -37,7 +38,42 @@ def median(data):
 
     return (sorted_data[n // 2 - 1] + sorted_data[n // 2]) / 2
 
+
 # 均值
 def mean(data):
     return sum(data) / len(data)
 
+
+# 极差
+def rng(data):
+    return max(data) - min(data)
+
+
+# 四分位数
+def quartile(data):
+    if len(data) < 4:
+        return None, None, None
+    data_sorted = sorted(data)
+    q2 = median(data_sorted)
+    if len(data) % 2 == 1:
+        q1 = median(data_sorted[: len(data) // 2])
+        q3 = median(data_sorted[len(data) // 2 + 1:])
+    else:
+        q1 = median(data_sorted[: len(data) // 2])
+        q3 = median(data_sorted[len(data) // 2:])
+    return q1, q2, q3
+
+
+# 方差
+def variance(data):
+    n = len(data)
+    if n <= 1:
+        return None
+
+    mean_data = mean(data)
+    return sum((i - mean_data) ** 2 for i in data) / (n - 1)
+
+
+# 标准差
+def std(data):
+    return sqrt(variance(data))
