@@ -1,5 +1,5 @@
 from collections import Counter
-from play_statistics.descriptive_statis import frequency, mode, median
+from play_statistics.descriptive_statis import frequency, mode, median, mean
 
 
 if __name__ == '__main__':
@@ -20,3 +20,7 @@ if __name__ == '__main__':
     # 测试中位数
     median = median(data)
     print(median)
+
+    # 测试均值
+    mean = mean(data)
+    print(mean)

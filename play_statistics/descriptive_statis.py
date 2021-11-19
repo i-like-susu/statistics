@@ -36,3 +36,8 @@ def median(data):
         return sorted_data[n // 2]
 
     return (sorted_data[n // 2 - 1] + sorted_data[n // 2]) / 2
+
+# 均值
+def mean(data):
+    return sum(data) / len(data)
+
